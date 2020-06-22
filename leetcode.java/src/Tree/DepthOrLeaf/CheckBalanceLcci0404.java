@@ -1,8 +1,6 @@
-package Tree.B;
+package Tree.DepthOrLeaf;
 
 import Struct.TreeNode;
-
-import java.util.Arrays;
 
 
 /*

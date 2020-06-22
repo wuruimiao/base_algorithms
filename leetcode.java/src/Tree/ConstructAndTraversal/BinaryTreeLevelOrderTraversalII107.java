@@ -1,4 +1,4 @@
-package Tree.C;
+package Tree.ConstructAndTraversal;
 
 import Struct.TreeNode;
 

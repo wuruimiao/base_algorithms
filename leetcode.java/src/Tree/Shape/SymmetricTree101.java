@@ -1,4 +1,4 @@
-package Tree.A;
+package Tree.Shape;
 
 import Struct.TreeNode;
 
