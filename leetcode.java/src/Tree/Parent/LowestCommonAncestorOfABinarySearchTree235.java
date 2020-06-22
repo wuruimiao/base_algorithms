@@ -39,26 +39,23 @@ p、q 为不同节点且均存在于给定的二叉搜索树中。
 import Struct.TreeNode;
 
 public class LowestCommonAncestorOfABinarySearchTree235 {
-    private TreeNode dfs(TreeNode node, int low, int high) {
-        if (node.val == high || node.val == low || (low < node.val && node.val < high )) {
-            return node;
+    private TreeNode dfs(TreeNode node, int p, int q) {
+        if (node == null) return null;
+        if (p < node.val && q < node.val) return dfs(node.left, p, q);
+        else if (p > node.val && q > node.val) return dfs(node.right, p, q);
+        else return node;
+    }
+
+    private TreeNode bfs(TreeNode node, int p, int q) {
+        while (node != null) {
+            if (p < node.val && q < node.val) node = node.left;
+            else if (p > node.val && q > node.val) node= node.right;
+            else return node;
         }
-        if (node.val < low) {
-            return dfs(node.right, low, high);
-        } else {
-            return dfs(node.left, low, high);
-        }
+        return null;
     }
 
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        int low, high;
-        if (p.val > q.val) {
-            low = q.val;
-            high = p.val;
-        } else {
-            low = p.val;
-            high = q.val;
-        }
-        return dfs(root, low, high);
+        return dfs(root, p.val, q.val);
     }
 }
