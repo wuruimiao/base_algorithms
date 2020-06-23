@@ -31,7 +31,7 @@ import Struct.TreeNode;
 import java.util.*;
 
 public class BinaryTreeLevelOrderTraversal102 {
-    private static void traversal(TreeNode node, int level, List<List<Integer>> result) {
+    private  void traversal(TreeNode node, int level, List<List<Integer>> result) {
         if (node == null) {
             return;
         }
@@ -43,13 +43,13 @@ public class BinaryTreeLevelOrderTraversal102 {
         traversal(node.right, level + 1, result);
     }
 
-    public static List<List<Integer>> levelOrder(TreeNode root) {
+    public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> result = new ArrayList<>();
         traversal(root, 0, result);
         return result;
     }
 
-    public static List<List<Integer>> levelOrder2(TreeNode root) {
+    public  List<List<Integer>> levelOrder2(TreeNode root) {
         List<List<Integer>> res = new ArrayList<>();
 
         Queue<TreeNode> queue = new ArrayDeque<>();
@@ -83,7 +83,7 @@ public class BinaryTreeLevelOrderTraversal102 {
         root.right = node20;
         node20.left = node15;
         node20.right = node7;
-        List<List<Integer>> result = levelOrder2(root);
+        List<List<Integer>> result = new BinaryTreeLevelOrderTraversal102().levelOrder2(root);
         System.out.println(Arrays.toString(result.toArray()));
     }
 }
