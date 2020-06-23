@@ -17,10 +17,11 @@ public class Swap {
         System.out.println("交换：" + i + "与" + j + Arrays.toString(nums));
     }
 
-    private Swap() {}
+    private Swap() {
+    }
 
     public static Swap getInstance() {
-        if (instance==null) {
+        if (instance == null) {
             synchronized (Swap.class) {
                 instance = new Swap();
             }

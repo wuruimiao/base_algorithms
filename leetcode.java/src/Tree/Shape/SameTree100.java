@@ -53,6 +53,7 @@ public class SameTree100 {
         }
         return nodeP.val != nodeQ.val;
     }
+
     private boolean dfs(TreeNode nodeP, TreeNode nodeQ) {
         if (nodeP == null && nodeQ == null) {
             return true;
@@ -61,7 +62,7 @@ public class SameTree100 {
             return false;
         }
         assert nodeP != null;
-        return dfs(nodeP.left, nodeQ.left)&& dfs(nodeP.right, nodeQ.right);
+        return dfs(nodeP.left, nodeQ.left) && dfs(nodeP.right, nodeQ.right);
     }
 
     public boolean isSameTree(TreeNode p, TreeNode q) {
@@ -77,7 +78,7 @@ public class SameTree100 {
         if (isDiffNode(nodeP, nodeQ)) return false;
 
         Queue<TreeNode> queueP = new ArrayDeque<>();
-        Queue<TreeNode> queueQ= new ArrayDeque<>();
+        Queue<TreeNode> queueQ = new ArrayDeque<>();
         if (nodeP != null) queueP.add(nodeP);
         if (nodeQ != null) queueQ.add(nodeQ);
         while (!queueP.isEmpty() && !queueQ.isEmpty()) {

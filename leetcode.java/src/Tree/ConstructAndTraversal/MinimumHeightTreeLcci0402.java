@@ -16,6 +16,7 @@ package Tree.ConstructAndTraversal;
        /   /
      -10  5
 * */
+
 import Struct.TreeNode;
 
 import java.util.Arrays;
@@ -35,7 +36,7 @@ public class MinimumHeightTreeLcci0402 {
     }
 
     public static void main(String[] args) {
-        int[] nums = {-10,-3,0,5,9};
+        int[] nums = {-10, -3, 0, 5, 9};
         MinimumHeightTreeLcci0402 t = new MinimumHeightTreeLcci0402();
 
         TreeNode root = t.sortedArrayToBST(nums);

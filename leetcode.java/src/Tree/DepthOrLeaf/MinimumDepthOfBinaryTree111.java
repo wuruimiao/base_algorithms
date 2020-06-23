@@ -74,7 +74,7 @@ public class MinimumDepthOfBinaryTree111 {
 
     public int minDepth(TreeNode root) {
 //        return bfs(root);
-         return dfs(root);
+        return dfs(root);
     }
 
     private void test1() {
@@ -89,6 +89,7 @@ public class MinimumDepthOfBinaryTree111 {
         node20.right = node7;
         System.out.println(this.minDepth(root) + "=2");
     }
+
     private void test2() {
         TreeNode root = new TreeNode(1);
         TreeNode node2 = new TreeNode(2);

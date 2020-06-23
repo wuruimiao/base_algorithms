@@ -35,7 +35,7 @@ public class PathSumII113 {
         sum += node.val;
         sol.add(node.val);
         if (node.left == null && node.right == null) {
-            if (target == sum)  {
+            if (target == sum) {
                 res.add(new ArrayList<>(sol));
                 sol.remove(sol.size() - 1);
                 return;
@@ -48,7 +48,7 @@ public class PathSumII113 {
 
     private List<List<Integer>> bfs(TreeNode root, int target) {
         Queue<TreeNode> qNode = new ArrayDeque<>();
-        Queue<List<Integer>> qList= new ArrayDeque<>();
+        Queue<List<Integer>> qList = new ArrayDeque<>();
         Queue<Integer> qSum = new ArrayDeque<>();
         List<List<Integer>> res = new ArrayList<>();
 
@@ -64,7 +64,7 @@ public class PathSumII113 {
             int sum = qSum.poll();
             sum += node.val;
             if (node.left == null && node.right == null) {
-                if (target == sum)  {
+                if (target == sum) {
                     res.add(list);
                     continue;
                 }

@@ -28,7 +28,7 @@ public class Merge implements Sort {
 
     @Override
     public void sort(int[] nums, int left, int right) {
-        if (nums.length == 0)  {
+        if (nums.length == 0) {
             return;
         }
         merge(nums, left, right);

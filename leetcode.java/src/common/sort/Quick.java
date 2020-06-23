@@ -1,16 +1,18 @@
 package common.sort;
 
-import java.util.Arrays;
-
-public class Quick implements Sort{
+public class Quick implements Sort {
     private final Swap swap = Swap.getInstance();
 
     private int partition(int[] nums, int left, int right) {
         int i = left, j = right - 1, pivot = nums[right];
         System.out.println("分区" + left + "与" + right);
-        while (i < j ) {
-            while (nums[i] <= pivot && i < j) { i++;}
-            while (nums[j] > pivot && i < j) { j--;}
+        while (i < j) {
+            while (nums[i] <= pivot && i < j) {
+                i++;
+            }
+            while (nums[j] > pivot && i < j) {
+                j--;
+            }
             if (i < j) {
                 swap.make(nums, i, j);
             }
@@ -55,7 +57,10 @@ public class Quick implements Sort{
 
     //    双校验锁——懒汉进阶
     private volatile static Quick singleton;
-    private Quick (){}
+
+    private Quick() {
+    }
+
     public static Quick getInstance() {
         if (singleton == null) {
             synchronized (Quick.class) {

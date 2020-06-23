@@ -49,7 +49,7 @@ public class LowestCommonAncestorOfABinarySearchTree235 {
     private TreeNode bfs(TreeNode node, int p, int q) {
         while (node != null) {
             if (p < node.val && q < node.val) node = node.left;
-            else if (p > node.val && q > node.val) node= node.right;
+            else if (p > node.val && q > node.val) node = node.right;
             else return node;
         }
         return null;

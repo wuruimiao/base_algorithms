@@ -41,12 +41,12 @@ import Struct.TreeNode;
 import java.util.*;
 
 /*
-* 主要考虑共边和不共边两种情况
-* */
+ * 主要考虑共边和不共边两种情况
+ * */
 public class LowestCommonAncestorOfABinaryTree236 {
     private TreeNode dfs(TreeNode node, boolean[] flags, int p, int q) {
         if (node == null) return null;
-        boolean fp= flags[0], fq = flags[1];
+        boolean fp = flags[0], fq = flags[1];
         if (node.val == p) flags[0] = true;
         if (node.val == q) flags[1] = true;
         TreeNode n;
@@ -60,6 +60,7 @@ public class LowestCommonAncestorOfABinaryTree236 {
         if (!(fp || fq) && flags[0] && flags[1]) return Objects.requireNonNullElse(n, node);
         return null;
     }
+
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         return dfs(root, new boolean[]{false, false}, p.val, q.val);
     }
@@ -74,6 +75,7 @@ public class LowestCommonAncestorOfABinaryTree236 {
             traversal(node.right, parent);
         }
     }
+
     public TreeNode lowestCommonAncestor1(TreeNode root, TreeNode p, TreeNode q) {
         Map<Integer, TreeNode> parent = new HashMap<>();
         traversal(root, parent);

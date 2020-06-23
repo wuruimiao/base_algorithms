@@ -64,7 +64,7 @@ public class SymmetricTree101 {
             TreeNode l = queueL.poll();
             TreeNode r = queueR.poll();
             if (isDiffNode(l.left, r.right) || isDiffNode(l.right, r.left)) return false;
-            if (l.left!=null) {
+            if (l.left != null) {
                 queueL.add(l.left);
                 queueR.add(r.right);
             }

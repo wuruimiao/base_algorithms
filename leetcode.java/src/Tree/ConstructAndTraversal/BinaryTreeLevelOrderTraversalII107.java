@@ -44,7 +44,7 @@ public class BinaryTreeLevelOrderTraversalII107 {
         }
         System.out.print(level + " ");
         System.out.println(Arrays.toString(res.toArray()));
-        res.get(res.size()-level - 1).add(node.val);
+        res.get(res.size() - level - 1).add(node.val);
     }
 
     public static List<List<Integer>> levelOrderBottom(TreeNode root) {

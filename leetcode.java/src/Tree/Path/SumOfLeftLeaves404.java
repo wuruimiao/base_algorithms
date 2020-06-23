@@ -28,7 +28,7 @@ public class SumOfLeftLeaves404 {
             sum += node.val;
         }
         sum = dfs(node.left, true, sum);
-        sum = dfs(node.right ,false, sum);
+        sum = dfs(node.right, false, sum);
         return sum;
     }
 

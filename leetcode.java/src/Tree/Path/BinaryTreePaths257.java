@@ -56,15 +56,15 @@ public class BinaryTreePaths257 {
         while (!qNode.isEmpty()) {
             TreeNode node = qNode.poll();
             String str = qStr.poll();
-            if (node.left == null && node.right ==null) {
+            if (node.left == null && node.right == null) {
                 result.add(str);
                 continue;
             }
-            if (node.left!= null) {
+            if (node.left != null) {
                 qNode.add(node.left);
                 qStr.add(str + "->" + node.left.val);
             }
-            if (node.right!= null) {
+            if (node.right != null) {
                 qNode.add(node.right);
                 qStr.add(str + "->" + node.right.val);
             }

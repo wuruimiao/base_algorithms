@@ -31,6 +31,7 @@ public class MaximumDepthOfBinaryTree104 {
         }
         return Math.max(dfs(node.left), dfs(node.right)) + 1;
     }
+
     public int maxDepth(TreeNode root) {
         return dfs(root);
     }
