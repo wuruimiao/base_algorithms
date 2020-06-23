@@ -53,6 +53,8 @@ public class LowestCommonAncestorOfABinaryTree236 {
 
         n = dfs(node.left, flags, p, q);
 //        System.out.println("left return " + node.val + " " + fp + " " +fq + " " + Arrays.toString(flags) + " " + n);
+        // 这里通过bool判断下层是否已找到，但其实只要判断下层是否有找到节点
+        // 而p和q，要么在一侧，要么在两侧
         if (!(fp || fq) && flags[0] && flags[1]) return Objects.requireNonNullElse(n, node);
 
         n = dfs(node.right, flags, p, q);
@@ -62,7 +64,27 @@ public class LowestCommonAncestorOfABinaryTree236 {
     }
 
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        return dfs(root, new boolean[]{false, false}, p.val, q.val);
+        return lowestCommonAncestor2(root, p, q);
+//        return dfs(root, new boolean[]{false, false}, p.val, q.val);
+    }
+
+    public TreeNode lowestCommonAncestor2(TreeNode node, TreeNode p, TreeNode q) {
+        if(node == null || node == p || node == q) return node;
+        TreeNode left = lowestCommonAncestor(node.left, p, q);
+        TreeNode right = lowestCommonAncestor(node.right, p, q);
+        System.out.print(node.val + " ");
+        System.out.print(left);
+        if (left != null) System.out.print("值=" + left.val + " ");
+        System.out.print(right);
+        if (right != null) System.out.print("值=" + right.val + " ");
+        System.out.println();
+        if(left == null && right == null) return null; // 1.
+        if(left == null) return right; // 3.
+        if(right == null) return left; // 4.
+        // 注意这里，只有到两个都找到，才返回当前节点；否则就返回找到的节点
+        // 从下往上返回时，第一个，下面找到了节点，而当前层两个节点都没找到，这个就是目标祖先
+        // 也即，
+        return node; // 2. if(left != null and right != null)
     }
 
     private void traversal(TreeNode node, Map<Integer, TreeNode> parent) {
@@ -93,52 +115,28 @@ public class LowestCommonAncestorOfABinaryTree236 {
         return null;
     }
 
-
-    private void test1() {
-        TreeNode root1 = new TreeNode(3);
-        TreeNode node5 = new TreeNode(5);
-        TreeNode node1 = new TreeNode(1);
-        root1.left = node5;
-        root1.right = node1;
-        TreeNode node6 = new TreeNode(6);
-        TreeNode node2 = new TreeNode(2);
-        node5.left = node6;
-        node5.right = node2;
-        TreeNode node0 = new TreeNode(0);
-        TreeNode node8 = new TreeNode(8);
-        node1.left = node0;
-        node1.right = node8;
-        TreeNode node7 = new TreeNode(7);
-        TreeNode node4 = new TreeNode(4);
-        node2.left = node7;
-        node2.right = node4;
-        System.out.println(this.lowestCommonAncestor(root1, node5, node1).val + "==3");
-    }
-
-    private void test2() {
-        TreeNode root1 = new TreeNode(3);
-        TreeNode node5 = new TreeNode(5);
-        TreeNode node1 = new TreeNode(1);
-        root1.left = node5;
-        root1.right = node1;
-        TreeNode node6 = new TreeNode(6);
-        TreeNode node2 = new TreeNode(2);
-        node5.left = node6;
-        node5.right = node2;
-        TreeNode node0 = new TreeNode(0);
-        TreeNode node8 = new TreeNode(8);
-        node1.left = node0;
-        node1.right = node8;
-        TreeNode node7 = new TreeNode(7);
-        TreeNode node4 = new TreeNode(4);
-        node2.left = node7;
-        node2.right = node4;
-        System.out.println(this.lowestCommonAncestor(root1, node5, node4).val + "==5");
-    }
-
     public static void main(String[] args) {
+        TreeNode root1 = new TreeNode(3);
+        TreeNode node5 = new TreeNode(5);
+        TreeNode node1 = new TreeNode(1);
+        root1.left = node5;
+        root1.right = node1;
+        TreeNode node6 = new TreeNode(6);
+        TreeNode node2 = new TreeNode(2);
+        node5.left = node6;
+        node5.right = node2;
+        TreeNode node0 = new TreeNode(0);
+        TreeNode node8 = new TreeNode(8);
+        node1.left = node0;
+        node1.right = node8;
+        TreeNode node7 = new TreeNode(7);
+        TreeNode node4 = new TreeNode(4);
+        node2.left = node7;
+        node2.right = node4;
+
         LowestCommonAncestorOfABinaryTree236 t = new LowestCommonAncestorOfABinaryTree236();
-        t.test1();
-        t.test2();
+//        System.out.println(t.lowestCommonAncestor(root1, node5, node1).val + "==3");
+//        System.out.println(t.lowestCommonAncestor(root1, node5, node4).val + "==5");
+        System.out.println(t.lowestCommonAncestor(root1, node6, node8).val + "==3");
     }
 }
