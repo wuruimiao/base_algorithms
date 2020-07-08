@@ -26,6 +26,13 @@ package Tree;
 
 输出: -1
 说明: 最小的值是 2, 但是不存在第二小的值。
+
+
+    2
+   / \
+  2   5
+ /   / \
+3   5   7
 * */
 
 import Struct.TreeNode;
