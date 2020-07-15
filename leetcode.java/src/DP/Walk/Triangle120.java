@@ -1,4 +1,4 @@
-package DP;
+package DP.Walk;
 
 import java.util.ArrayList;
 import java.util.Arrays;

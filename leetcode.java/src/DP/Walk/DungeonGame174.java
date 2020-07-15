@@ -1,4 +1,4 @@
-package DP;
+package DP.Walk;
 
 /*
 * 174. 地下城游戏 https://leetcode-cn.com/problems/dungeon-game/
