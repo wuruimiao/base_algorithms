@@ -1,4 +1,4 @@
-package DP.FeiBo;
+package DP;
 
 public class ClimbingStairs70 {
     public int climbStairsWith(int n) {
