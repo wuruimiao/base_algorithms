@@ -1,4 +1,4 @@
-package Tree.Shape;
+package Hot100;
 
 
 import Struct.TreeNode;

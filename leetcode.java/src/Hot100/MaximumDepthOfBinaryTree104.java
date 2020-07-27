@@ -1,4 +1,4 @@
-package Tree.DepthOrLeaf;
+package Hot100;
 
 import Struct.TreeNode;
 /*
